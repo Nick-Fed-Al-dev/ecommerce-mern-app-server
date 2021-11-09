@@ -1,0 +1,5 @@
+{
+  "port": 3030,
+  "secretWord": "benten1011",
+  "mongoURI": "mongodb+srv://NikitaFed:benten1011@clusterfirst.w0sik.mongodb.net/online-store"
+}
