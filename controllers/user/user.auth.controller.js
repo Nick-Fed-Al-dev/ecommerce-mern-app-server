@@ -87,6 +87,14 @@ class UserAuthController{
           message: 'INCORRECT PASSWORD'
         })
       }
+      const tokenDurationMin = config.get('jwtDuration')
+      const today = new Date()
+      const todayYearSecs = today.getFullYear()*12*30*24*60*60
+      const todayMonthSecs = today.getMonth()*30*24*60*60
+      const todayDaySecs = today.getDate()*24*60*60
+      const todayHourSecs = today.getHours()*60*60
+      const todayMinSecs = today.getMinutes()*60
+      const todaySecs = today.getSeconds()
 
       const payload = {
         userId: user.id,
@@ -97,7 +105,7 @@ class UserAuthController{
         payload,
         config.get('secretWord'),
         {
-          expiresIn: '5m'
+          expiresIn: tokenDurationMin + 'm'
         }
       )
 
@@ -108,7 +116,9 @@ class UserAuthController{
         message: 'USER AUTHENTICATION SUCCESS',
         user: {
           token,
-          payload
+          ...payload,
+          tokenSignTimeSec: todayYearSecs + todayMonthSecs + todayDaySecs + todayHourSecs + todayMinSecs + todaySecs,
+          tokenDurationSec: tokenDurationMin*60
         },
       })
     } catch (e) {

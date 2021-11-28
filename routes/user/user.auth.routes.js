@@ -1,10 +1,10 @@
 const express = require('express')
 const validator = require('express-validator')
-const AuthController = require('../../controllers/user/user.auth.controller')
+const Controller = require('../../controllers/user/user.auth.controller')
 
 const router = express.Router()
 
-const controller = new AuthController()
+const controller = new Controller()
 
 router.post(
   '/registrate',

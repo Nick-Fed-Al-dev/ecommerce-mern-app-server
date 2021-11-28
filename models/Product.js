@@ -11,15 +11,27 @@ const schema = new mongoose.Schema({
     required: true
   },
 
-  image: {
+  type: {
     type: String,
-    default: 'non-image.png'
+    required: true,
+    ref: 'Product-Type'
   },
 
-  rating: {
-    type: Number,
-    default: 0
+  description: {
+    type: String,
+    required: true
   },
+
+  properties: {
+    type: Array,
+    required: true
+  },
+
+  image: {
+    type: String,
+    default: 'no-image.png'
+  },
+  
 })
 
 module.exports = mongoose.model('Product', schema)

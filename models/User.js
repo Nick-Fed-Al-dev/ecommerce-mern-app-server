@@ -12,10 +12,11 @@ const schema = new mongoose.Schema({
     type: String
   },
 
-  products: {
+  products:{
     type: Array,
-    default: [],
+    default: []
   },
+
 
   role: {
     type: String,

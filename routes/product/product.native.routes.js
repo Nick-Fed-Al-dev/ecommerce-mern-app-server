@@ -1,8 +1,8 @@
 const express = require('express')
-const NativeProductController = require('../../controllers/product/product.native.controller')
+const Controller = require('../../controllers/product/product.native.controller')
 
 const router = express.Router()
-const controller = new NativeProductController()
+const controller = new Controller()
 
 router.get(
   '/',

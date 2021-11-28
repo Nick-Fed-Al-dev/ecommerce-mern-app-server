@@ -1,9 +1,9 @@
 const express = require('express')
 const adminMiddleware = require('../../middlewares/admin.middleware')
-const ProductAdminController = require('../../controllers/product/product.admin.controller')
+const Controller = require('../../controllers/product/product.admin.controller')
 
 const router = express.Router()
-const controller = new ProductAdminController()
+const controller = new Controller()
 
 router.use(adminMiddleware)
 

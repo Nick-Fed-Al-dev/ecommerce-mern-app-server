@@ -1,8 +1,10 @@
 const express = require('express')
-const NativeInteractController = require('../../../controllers/user/interact/user.native.interact.controller')
+const Controller = require('../../../controllers/user/interact/user.native.interact.controller')
 
 const router = express.Router()
-const controller = new NativeInteractController()
+const controller = new Controller()
+
+router.get('/:id', controller.getUserById)
 
 router.patch('/:id', controller.changeUserById)
 

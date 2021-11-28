@@ -1,10 +1,27 @@
 const User = require('../../../models/User')
 
 class NativeInteractController{
+
+  async getUserById(req, res){
+    try{
+      const id = req.params.id
+      const user = await User.findOne({_id: id})
+      res.status(200).json(user)
+    } catch (error){
+      res
+      .status(400)
+      .json({
+        status: 400,
+        message: 'FAILED TO GET USER',
+        error: error.message
+      })
+    }
+  }
+
   async changeUserById(req, res){
     try {
       const id = req.params.id
-      await User.updateOne({id}, req.body)
+      await User.updateOne({_id: id}, req.body)
       res
       .status(200)
       .json({
@@ -17,7 +34,7 @@ class NativeInteractController{
       .json({
         status: 404,
         message: 'USER NOT FOUND',
-        error
+        error: error.message
       })
     }
 

@@ -17,7 +17,8 @@ class UserInteractController{
       .status(404)
       .json({
         status: 404,
-        message: 'USER NOT FOUND'
+        message: 'USER NOT FOUND',
+        error: error.message
       })
     }
   }
@@ -37,7 +38,8 @@ class UserInteractController{
       .status(404)
       .json({
         status: 404,
-        message: 'USER NOT FOUND'
+        message: 'USER NOT FOUND',
+        error: error.message
       })
     }
   }
@@ -57,7 +59,8 @@ class UserInteractController{
       .status(404)
       .json({
         status: 404,
-        message: 'USER NOT FOUND'
+        message: 'USER NOT FOUND',
+        error: error.message
       })
     }
 

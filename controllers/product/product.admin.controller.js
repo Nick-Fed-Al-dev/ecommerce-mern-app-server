@@ -1,4 +1,5 @@
 const Product = require('../../models/Product')
+const ProductType = require('../../models/ProductType')
 
 class ProductAdminController{
   async getProducts(req, res){
@@ -24,19 +25,20 @@ class ProductAdminController{
 
   async createProduct(req, res){
     try {
-      const {title, price, image} = req.body
+      const {title, price, image, type} = req.body
+      
+      const productTypes = (await ProductType.find({})).map(type => type.name)
 
-      if(!title || !price){
-        res
-        .status(400)
+      if(!productTypes.includes(type)){
+        return res
+        .status(404)
         .json({
-          status: 400,
-          message: 'INVALID PRODUCT DATA WAS RECEIVED'
+          status: 404,
+          message: 'THIS PRODUCT TYPE DOES NOT EXIST'
         })
       }
 
-      const product = new Product({title, price, image})
-      
+      const product = new Product({title, price, image, type})
       await product.save()
 
       res
@@ -51,7 +53,8 @@ class ProductAdminController{
       .status(400)
       .json({
         status: 400,
-        message: 'PRODUCT CREATION FAILED'
+        message: 'PRODUCT CREATION FAILED',
+        error: error.message
       })
     }
   }
@@ -71,7 +74,8 @@ class ProductAdminController{
       .status(400)
       .json({
         status: 400,
-        message: 'PRODUCT NOT FOUND'
+        message: 'PRODUCT NOT FOUND',
+        error: error.message
       })
     }
   }
@@ -91,7 +95,8 @@ class ProductAdminController{
       .status(400)
       .json({
         status: 400,
-        message: 'PRODUCT NOT FOUND'
+        message: 'PRODUCT NOT FOUND',
+        error: error.message
       })
     }
   }
