@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 require('dotenv').config()
 
 const app = express()
-const PORT = config.get('port') || 3030
+const PORT = process.env.PORT || config.get('port')
 
 app.use(cors({origin: '*'}))
 app.use(express.json())
