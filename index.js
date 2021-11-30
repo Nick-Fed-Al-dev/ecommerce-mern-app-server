@@ -2,6 +2,7 @@ const express = require('express')
 const config = require('config')
 const cors = require('cors')
 const mongoose = require('mongoose')
+require('dotenv').config()
 
 const app = express()
 const PORT = config.get('port') || 3030
