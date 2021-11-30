@@ -31,7 +31,7 @@ const schema = new mongoose.Schema({
     type: String,
     default: 'no-image.png'
   },
-  
+
 })
 
 module.exports = mongoose.model('Product', schema)
