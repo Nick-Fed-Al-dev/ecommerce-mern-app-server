@@ -20,7 +20,6 @@ router.post(
   [
     validator
     .check("email", "ENTER EMAIL IN CORRECT FORMAT")
-    .normalizeEmail()
     .isEmail(),
   validator.check("password", "PASSWORD MIN LENGTH 6").isLength({ min: 6 }),
   ],

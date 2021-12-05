@@ -60,7 +60,7 @@ class UserAuthController{
         .json({
           status: 401,
           errors: errors.array(),
-          message: 'INCORRECT REGISTRATION DATA'
+          message: 'INCORRECT REGISTRATION DATA',
         })
       }
 
@@ -69,7 +69,7 @@ class UserAuthController{
       const user = await User.findOne({email})
 
       if(!user){
-        res
+        return res
         .status(404)
         .json({
           status: 404,
