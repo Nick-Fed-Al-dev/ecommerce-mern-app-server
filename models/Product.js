@@ -14,7 +14,6 @@ const schema = new mongoose.Schema({
   type: {
     type: String,
     required: true,
-    ref: 'Product-Type'
   },
 
   description: {

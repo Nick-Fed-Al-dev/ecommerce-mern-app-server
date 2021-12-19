@@ -1,7 +1,11 @@
 const mongoose = require('mongoose')
 
 const schema = new mongoose.Schema({
-  name: {
+  rus: {
+    required: true,
+    type: String
+  },
+  eng: {
     required: true,
     type: String
   },

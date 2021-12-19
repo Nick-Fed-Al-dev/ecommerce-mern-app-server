@@ -25,8 +25,8 @@ class ProductTypeAdminController{
 
   async createProductType(req, res){
     try {
-      const {name} = req.body
-      const candidate = await ProductType.findOne({name})
+      const {rus, eng, image} = req.body
+      const candidate = await ProductType.findOne({eng})
       if(candidate){
         return res
         .status(400)
@@ -35,7 +35,7 @@ class ProductTypeAdminController{
           message: 'PRODUCT TYPE WITH THIS NAME ALREADY EXISTS'
         })
       }
-      const type = new ProductType({name})
+      const type = new ProductType({rus, eng, image})
       await type.save()
       res
       .status(200)

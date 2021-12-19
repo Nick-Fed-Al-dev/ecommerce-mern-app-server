@@ -14,14 +14,20 @@ const schema = new mongoose.Schema({
 
   products:{
     type: Array,
-    default: []
+    default: [] 
   },
-
 
   role: {
     type: String,
     default: 'NATIVE'
-  }
+  },
+
+  reviews: [
+    {
+      type: mongoose.Types.ObjectId,
+      ref: 'Review'
+    }
+  ]
 
 })
 

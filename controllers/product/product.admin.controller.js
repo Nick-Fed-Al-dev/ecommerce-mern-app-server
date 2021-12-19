@@ -25,9 +25,9 @@ class ProductAdminController{
 
   async createProduct(req, res){
     try {
-      const {title, price, image, type} = req.body
+      const {title, price, image, properties, description, type} = req.body
       
-      const productTypes = (await ProductType.find({})).map(type => type.name)
+      const productTypes = (await ProductType.find({})).map(type => type.eng)
 
       if(!productTypes.includes(type)){
         return res
@@ -38,7 +38,7 @@ class ProductAdminController{
         })
       }
 
-      const product = new Product({title, price, image, type})
+      const product = new Product({title, price, image, type, description})
       await product.save()
 
       res
