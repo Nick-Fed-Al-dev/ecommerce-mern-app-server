@@ -4,7 +4,7 @@ class ProductNativeController{
 
   async getProducts(req, res){
     try {
-      const page = Number(req.query.page)
+      let page = Number(req.query.page)
       const category = req.query.category
       if(page == 'undefind' || page == 'null'){
         page = null
