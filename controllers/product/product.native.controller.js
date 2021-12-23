@@ -6,6 +6,12 @@ class ProductNativeController{
     try {
       const page = Number(req.query.page)
       const category = req.query.category
+      if(page == 'undefind' || page == 'null'){
+        page = null
+      }
+      if(category == 'undefind' || category == 'null'){
+        category = null
+      }
       let products = await Product.find(category ? {type: category} : {})
       if(page){
         products = products.filter((product, i) => {
