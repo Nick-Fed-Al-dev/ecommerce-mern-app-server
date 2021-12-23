@@ -38,14 +38,15 @@ class ProductAdminController{
         })
       }
 
-      const product = new Product({title, price, image, type, description})
+      const product = new Product({title, price, image, type, description, properties})
       await product.save()
 
       res
       .status(200)
       .json({
         status: 200,
-        message: 'PRODUCT CREATION SUCCESS'
+        message: 'PRODUCT CREATION SUCCESS',
+        props: properties
       })
 
     } catch (error) {
