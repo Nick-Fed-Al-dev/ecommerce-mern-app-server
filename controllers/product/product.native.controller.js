@@ -4,16 +4,18 @@ class ProductNativeController{
 
   async getProducts(req, res){
     try {
-      const page = req.query.page || 1
+      const page = Number(req.query.page)
       const category = req.query.category
-      const products = await Product.find(category ? {type: category} : {})
-      products = products.filter((product, i) => {
-        if(i === 1){
-          return (i >= page*10-10-1) && (i < page*10)
-        }
-        return (i > page*10-10-1) && (i < page*10)
-      })
-      res.json(products)
+      let products = await Product.find(category ? {type: category} : {})
+      if(page){
+        products = products.filter((product, i) => {
+          if(page === 1){
+            return (i >= page*10-10-1) && (i < page*10)
+          }
+          return (i > page*10-10-1) && (i < page*10)
+        })
+      }
+      res.send(products)
     } catch (error) {
       
     }
