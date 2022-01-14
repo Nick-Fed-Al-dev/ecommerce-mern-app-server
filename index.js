@@ -18,7 +18,7 @@ async function start(){
     console.log('DATABASE CONNECTION SUCCESS!')
 
     app.listen(PORT, () => {
-      console.log('SERVER LISTEN ON PORT: ' + PORT + '...')
+      console.log('SERVER LISTEN ON PORT ' + PORT + '...')
     })
   } catch (error) {
     console.log(error)

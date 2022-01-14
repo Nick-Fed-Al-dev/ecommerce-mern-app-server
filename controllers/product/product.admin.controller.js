@@ -63,7 +63,7 @@ class ProductAdminController{
   async changeProductById(req, res){
     try {
       const id = req.params.id
-      await Product.updateOne({id}, req.body)
+      await Product.updateOne({_id: id}, req.body)
       res
       .status(200)
       .json({
@@ -84,7 +84,7 @@ class ProductAdminController{
   async deleteProductById(req, res){
     try {
       const id = req.params.id
-      await Product.deleteOne({id})
+      await Product.deleteOne({_id: id})
       res
       .status(200)
       .json({
