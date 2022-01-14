@@ -3,8 +3,7 @@ const mongoose = require("mongoose");
 const schema = new mongoose.Schema({
 
   owner: {
-    type: mongoose.Types.ObjectId,
-    ref: 'User',
+    type: Object,
     required: true
   },
 
@@ -23,13 +22,6 @@ const schema = new mongoose.Schema({
     type: String,
     required: true
   },
-
-  replies: [
-    {
-      type: mongoose.Types.ObjectId,
-      ref: 'Reply'
-    }
-  ]
 
 })
 
