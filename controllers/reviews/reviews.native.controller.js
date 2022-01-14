@@ -21,7 +21,7 @@ class ReviewsNativeController {
   async pushReview(req, res){
     try {
       const {owner, product, date, text} = req.body
-      const review = new Review({owner, product, date, text, replies: []})
+      const review = new Review({owner, product, date, text})
       await review.save()
       (await Review.find({owner, product, date, text})).populate('owner').exec()
       res
