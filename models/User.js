@@ -22,13 +22,6 @@ const schema = new mongoose.Schema({
     default: 'NATIVE'
   },
 
-  reviews: [
-    {
-      type: mongoose.Types.ObjectId,
-      ref: 'Review'
-    }
-  ]
-
 })
 
 module.exports = mongoose.model('User', schema)
