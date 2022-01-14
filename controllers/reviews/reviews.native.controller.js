@@ -23,7 +23,6 @@ class ReviewsNativeController {
       const {owner, product, date, text} = req.body
       const review = new Review({owner, product, date, text})
       await review.save()
-      (await Review.find({owner, product, date, text})).populate('owner').exec()
       res
         .status(200)
         .json({
