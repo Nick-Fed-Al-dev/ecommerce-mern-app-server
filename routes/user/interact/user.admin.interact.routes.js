@@ -1,10 +1,12 @@
 const express = require('express')
 const adminMiddleware = require('../../../middlewares/admin.middleware')
 const Controller = require('../../../controllers/user/interact/user.admin.interact.controller')
+const authMiddleware = require('../../../middlewares/auth.middleware')
 
 const router = express.Router()
 const controller = new Controller()
 
+router.use(authMiddleware)
 router.use(adminMiddleware)
 
 router.get('/', controller.getUsers)
