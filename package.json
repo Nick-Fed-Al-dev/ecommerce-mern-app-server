@@ -9,9 +9,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Nick-Fed-Al-dev/ecommerce-mern-serside.git"
+    "url": "git+https://github.com/Nick-Fed-Al-dev/ecommerce-mern-serverside.git"
   },
-  "keywords": [],
+  "keywords": ["nodejs", "mongodb", "mern", "express"],
   "author": "",
   "license": "ISC",
   "devDependencies": {
