@@ -1,8 +1,16 @@
-# MERN Online Store Server
+# Ecommerce MERN App Server
 
-API for my first project. I used Express and MongoDB
+## Description
 
-API: https://mern-online-shop-project.herokuapp.com/
+This repository is a server for my first project - 
+a prototype of an online store implemented on the mern stack.
+I like the result.
+App was deployed on Heroku
+https://ecommerce-mern-app-server.herokuapp.com
+
+## npm run install
+
+Use this to set up node_modules
 
 ## npm run dev
 
